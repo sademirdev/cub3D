@@ -1,0 +1,11 @@
+.vscode/
+.idea/
+
+.DS_Store
+
+build/
+lib/*
+!lib/libft
+
+*.out
+*.o
