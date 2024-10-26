@@ -19,3 +19,10 @@ t_err	perr(const char *owner, const char *msg)
 	}
 	return (ERR);
 }
+
+t_err	fatal(const char *owner, const char *msg)
+{
+	perr(owner, msg);
+	exit(127);
+	return (ERR);
+}
