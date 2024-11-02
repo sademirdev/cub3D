@@ -8,7 +8,18 @@ int	main(int ac, char **av)
 
 	if (ac != 2)
 		return (perr(__func__, "invalid argument"), 1);
-	game = &(t_game){0};
-	(void)av;
-	printf("OK");
+	game = &(t_game){};
+	game->conf.match = (t_dir_str_data){
+		.data = {
+			[NO] = NO_STR,
+			[SO] = SO_STR,
+			[WE] = WE_STR,
+			[EA] = EA_STR,
+			[F] = F_STR,
+			[C] = C_STR,
+		}
+	};
+	err = game_init(game, av[1]);
+	if (err)
+		return (game_dispose(game), 2);
 }
